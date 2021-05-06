@@ -5,6 +5,7 @@
  */
 package comp603_cui_whowantstobeamillionaire;
 
+import com.sun.glass.events.WindowEvent;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
@@ -24,10 +25,14 @@ public class MainScreen extends javax.swing.JFrame {
     int screenHeight = screenSize.height;
     int frameWidth = screenWidth / 3;
     int frameHeight = screenHeight / 3;
+    
+    public void close() {
+        
+    }
 
     public MainScreen() {
         initComponents();
-        this.setSize(frameWidth, frameHeight);
+        this.setSize(380, 266);
     }
 
     /**
@@ -40,35 +45,31 @@ public class MainScreen extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        titleLabel = new javax.swing.JLabel();
+        buttonPanel = new javax.swing.JPanel();
         playButton = new javax.swing.JButton();
         leaderboardButton = new javax.swing.JButton();
         exitButton = new javax.swing.JButton();
+        titlePanel = new javax.swing.JPanel();
+        titleLabel = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 105, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 88, Short.MAX_VALUE)
-        );
-
-        titleLabel.setText("Welcome to Who Wants to be a Millionaire");
+        buttonPanel.setLayout(new java.awt.GridLayout());
 
         playButton.setText("Play");
+        playButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                playButtonMouseClicked(evt);
+            }
+        });
         playButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 playButtonActionPerformed(evt);
             }
         });
+        buttonPanel.add(playButton);
 
         leaderboardButton.setText("Leaderboard");
         leaderboardButton.addActionListener(new java.awt.event.ActionListener() {
@@ -76,6 +77,7 @@ public class MainScreen extends javax.swing.JFrame {
                 leaderboardButtonActionPerformed(evt);
             }
         });
+        buttonPanel.add(leaderboardButton);
 
         exitButton.setText("Exit");
         exitButton.addActionListener(new java.awt.event.ActionListener() {
@@ -83,45 +85,31 @@ public class MainScreen extends javax.swing.JFrame {
                 exitButtonActionPerformed(evt);
             }
         });
+        buttonPanel.add(exitButton);
+
+        titlePanel.setLayout(new java.awt.BorderLayout());
+
+        titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titleLabel.setText("Welcome to Who Wants to be a Millionaire");
+        titlePanel.add(titleLabel, java.awt.BorderLayout.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(buttonPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(300, 300, 300))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(112, 112, 112)
-                .addComponent(titleLabel)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(playButton)
-                .addGap(43, 43, 43)
-                .addComponent(leaderboardButton)
-                .addGap(58, 58, 58)
-                .addComponent(exitButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(titlePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(titleLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(125, 125, 125))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(playButton)
-                            .addComponent(leaderboardButton)
-                            .addComponent(exitButton))
-                        .addGap(48, 48, 48))))
+                .addContainerGap()
+                .addComponent(titlePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 211, Short.MAX_VALUE)
+                .addComponent(buttonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -130,15 +118,27 @@ public class MainScreen extends javax.swing.JFrame {
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
         // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_exitButtonActionPerformed
 
     private void playButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playButtonActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        GameFrame gf = new GameFrame();
+        gf.setVisible(true);
     }//GEN-LAST:event_playButtonActionPerformed
 
     private void leaderboardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leaderboardButtonActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        LeaderboardFrame lf = new LeaderboardFrame();
+        lf.setVisible(true);
     }//GEN-LAST:event_leaderboardButtonActionPerformed
+
+    private void playButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_playButtonMouseClicked
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_playButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -176,11 +176,12 @@ public class MainScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel buttonPanel;
     private javax.swing.JButton exitButton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JButton leaderboardButton;
     private javax.swing.JButton playButton;
     private javax.swing.JLabel titleLabel;
+    private javax.swing.JPanel titlePanel;
     // End of variables declaration//GEN-END:variables
 }
