@@ -26,6 +26,9 @@ public class InitiateDB {
         conn = dbManager.getConnection();
     }
     
+    /**
+     * Initiates all the questions into the database
+     */
     public void connectQuestionsDB() {
         try {
             this.statement = conn.createStatement();
@@ -59,6 +62,27 @@ public class InitiateDB {
         }
     }
     
+    /**
+     * Add player to the leaderboard
+     * @param playerName Name of the player
+     * @param score Final game score
+     */
+    public void addToDBLeaderboard(String playerName, int score) {
+        try {
+            this.statement = conn.createStatement();
+            this.statement.addBatch("INSERT INTO LEADERBOARD VALUES "
+                    + "('"+playerName+"',"+score+")");
+            this.statement.executeBatch();
+        } catch (SQLException ex) {
+            System.out.println(ex.getNextException());
+            System.out.println(ex.getMessage());
+        }
+    }
+    
+    /**
+     * Checks if a table already exists
+     * @param name Name of the table
+     */
     public void checkExistedTable(String name) {
         try {
             DatabaseMetaData dbmd = this.conn.getMetaData();
