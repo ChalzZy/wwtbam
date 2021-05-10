@@ -16,7 +16,7 @@ import java.sql.Statement;
  * @author Charles
  */
 public final class DBManager {
-   private static final String URL = "jdbc:derby://localhost:1527/wwtbam"; 
+   private static final String URL = "jdbc:derby://localhost:1527/sample"; 
    
    private static final String USER_NAME = "app";
    private static final String PASSWORD = "app";
@@ -42,7 +42,7 @@ public final class DBManager {
                 conn = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
                 System.out.println(URL + " Get Connected Successfully ....");
             } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
+                System.out.println("Message (EstalishConnection): "+ex.getMessage());
             }
         }    
     }
