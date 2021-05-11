@@ -1,12 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package comp603_cui_whowantstobeamillionaire;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  *
@@ -22,12 +21,45 @@ public class GameFrame extends javax.swing.JFrame {
     int frameWidth = screenWidth / 2;
     int frameHeight = screenHeight / 2;
 
+    private Player newPlayer;
+    private Leaderboard lb;
+    private QuestionManager qm;
+    private Bank bank;
+    private int questionCount;
+
     /**
-     * Creates new form gameFrame
+     * Creates new gameFrame
      */
     public GameFrame() {
         initComponents();
-        this.setSize(frameWidth, frameHeight);
+        this.setSize(778, 693);
+        this.newPlayer = new Player("null", 0);
+        this.lb = new Leaderboard();
+        this.qm = new QuestionManager();
+        this.bank = new Bank();
+        this.importQuestions();
+    }
+
+    public void importQuestions() {
+        try {
+            DBManager dbm = new DBManager();
+            Connection conn = dbm.getConnection();
+
+            Statement stm;
+            stm = conn.createStatement();
+
+            String sql = "Select * From QUESTIONS";
+
+            ResultSet rs;
+            rs = stm.executeQuery(sql);
+
+            while (rs.next()) {
+                qm.addQuestion(new Question(rs.getString("QUESTION"), rs.getString("QUESTIONA"), rs.getString("QUESTIONB"),
+                        rs.getString("QUESTIONC"), rs.getString("QUESTIOND"), rs.getInt("CORRECTANSWER"), rs.getInt("PRIZE")));
+            }
+        } catch (SQLException ex) {
+            System.err.println("Unable to import questions. Excpetion: " + ex.getMessage());
+        }
     }
 
     /**
@@ -45,12 +77,12 @@ public class GameFrame extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        questionTitle = new javax.swing.JLabel();
+        answerBoxPanel = new javax.swing.JPanel();
+        answerA = new javax.swing.JButton();
+        answerB = new javax.swing.JButton();
+        answerC = new javax.swing.JButton();
+        answerD = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jButton6 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -66,7 +98,7 @@ public class GameFrame extends javax.swing.JFrame {
         questionTitlePanel.add(questionText);
 
         questionNumber.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        questionNumber.setText("1");
+        questionNumber.setText("-");
         questionTitlePanel.add(questionNumber);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -78,34 +110,35 @@ public class GameFrame extends javax.swing.JFrame {
         questionTitlePanel.add(jLabel3);
 
         jPanel1.setBackground(new java.awt.Color(51, 153, 255));
+        jPanel1.setLayout(new java.awt.GridBagLayout());
 
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Question Placeholder");
-        jPanel1.add(jLabel1);
+        questionTitle.setForeground(new java.awt.Color(255, 255, 255));
+        questionTitle.setText("Question Placeholder");
+        jPanel1.add(questionTitle, new java.awt.GridBagConstraints());
 
-        jPanel2.setLayout(new java.awt.GridLayout());
+        answerBoxPanel.setLayout(new java.awt.GridLayout(1, 0));
 
-        jButton1.setBackground(new java.awt.Color(51, 153, 255));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Answer 1");
-        jPanel2.add(jButton1);
+        answerA.setBackground(new java.awt.Color(51, 153, 255));
+        answerA.setForeground(new java.awt.Color(255, 255, 255));
+        answerA.setText("Answer 1");
+        answerBoxPanel.add(answerA);
 
-        jButton3.setBackground(new java.awt.Color(51, 153, 255));
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Answer 2");
-        jPanel2.add(jButton3);
+        answerB.setBackground(new java.awt.Color(51, 153, 255));
+        answerB.setForeground(new java.awt.Color(255, 255, 255));
+        answerB.setText("Answer 2");
+        answerBoxPanel.add(answerB);
 
-        jButton4.setBackground(new java.awt.Color(51, 153, 255));
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Answer 3");
-        jPanel2.add(jButton4);
+        answerC.setBackground(new java.awt.Color(51, 153, 255));
+        answerC.setForeground(new java.awt.Color(255, 255, 255));
+        answerC.setText("Answer 3");
+        answerBoxPanel.add(answerC);
 
-        jButton2.setBackground(new java.awt.Color(51, 153, 255));
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Answer 4");
-        jPanel2.add(jButton2);
+        answerD.setBackground(new java.awt.Color(51, 153, 255));
+        answerD.setForeground(new java.awt.Color(255, 255, 255));
+        answerD.setText("Answer 4");
+        answerBoxPanel.add(answerD);
 
-        jPanel3.setLayout(new java.awt.GridLayout());
+        jPanel3.setLayout(new java.awt.GridLayout(1, 0));
 
         jButton6.setText("50/50");
         jPanel3.add(jButton6);
@@ -147,7 +180,7 @@ public class GameFrame extends javax.swing.JFrame {
                     .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 758, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(answerBoxPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(questionTitlePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -160,7 +193,7 @@ public class GameFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(answerBoxPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -169,34 +202,7 @@ public class GameFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GameFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GameFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GameFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GameFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -206,24 +212,36 @@ public class GameFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private static javax.swing.JButton answerA;
+    private static javax.swing.JButton answerB;
+    private javax.swing.JPanel answerBoxPanel;
+    private static javax.swing.JButton answerC;
+    private static javax.swing.JButton answerD;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel questionNumber;
+    private static javax.swing.JLabel questionNumber;
     private javax.swing.JLabel questionText;
+    private static javax.swing.JLabel questionTitle;
     private javax.swing.JPanel questionTitlePanel;
     // End of variables declaration//GEN-END:variables
+
+    public void start() {
+        questionCount = 0;
+
+        for (int i = 0; i < qm.getQuestions().size(); i++) {
+            this.questionNumber.setText(String.valueOf(i + 1));
+            this.questionTitle.setText(qm.getQuestions().get(i).getTitle());
+            this.answerA.setText(qm.getQuestions().get(i).getAnswerOne());
+            this.answerB.setText(qm.getQuestions().get(i).getAnswerTwo());
+            this.answerC.setText(qm.getQuestions().get(i).getAnswerThree());
+        }
+    }
 }
