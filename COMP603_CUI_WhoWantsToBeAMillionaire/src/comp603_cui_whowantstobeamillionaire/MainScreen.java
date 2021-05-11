@@ -123,7 +123,7 @@ public class MainScreen extends javax.swing.JFrame {
     private void playButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playButtonActionPerformed
         this.setVisible(false);
         GameFrame gf = new GameFrame();
-        gf.start();
+        gf.start(0);
         gf.setVisible(true);
     }//GEN-LAST:event_playButtonActionPerformed
 

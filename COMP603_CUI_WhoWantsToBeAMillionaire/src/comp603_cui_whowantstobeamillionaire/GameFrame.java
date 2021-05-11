@@ -2,10 +2,13 @@ package comp603_cui_whowantstobeamillionaire;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -75,7 +78,7 @@ public class GameFrame extends javax.swing.JFrame {
         questionText = new javax.swing.JLabel();
         questionNumber = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        questionValue = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         questionTitle = new javax.swing.JLabel();
         answerBoxPanel = new javax.swing.JPanel();
@@ -105,9 +108,9 @@ public class GameFrame extends javax.swing.JFrame {
         jLabel2.setText("| Question Value: ");
         questionTitlePanel.add(jLabel2);
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel3.setText("$500");
-        questionTitlePanel.add(jLabel3);
+        questionValue.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        questionValue.setText("$500");
+        questionTitlePanel.add(questionValue);
 
         jPanel1.setBackground(new java.awt.Color(51, 153, 255));
         jPanel1.setLayout(new java.awt.GridBagLayout());
@@ -121,21 +124,41 @@ public class GameFrame extends javax.swing.JFrame {
         answerA.setBackground(new java.awt.Color(51, 153, 255));
         answerA.setForeground(new java.awt.Color(255, 255, 255));
         answerA.setText("Answer 1");
+        answerA.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                answerAMouseClicked(evt);
+            }
+        });
         answerBoxPanel.add(answerA);
 
         answerB.setBackground(new java.awt.Color(51, 153, 255));
         answerB.setForeground(new java.awt.Color(255, 255, 255));
         answerB.setText("Answer 2");
+        answerB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                answerBMouseClicked(evt);
+            }
+        });
         answerBoxPanel.add(answerB);
 
         answerC.setBackground(new java.awt.Color(51, 153, 255));
         answerC.setForeground(new java.awt.Color(255, 255, 255));
         answerC.setText("Answer 3");
+        answerC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                answerCMouseClicked(evt);
+            }
+        });
         answerBoxPanel.add(answerC);
 
         answerD.setBackground(new java.awt.Color(51, 153, 255));
         answerD.setForeground(new java.awt.Color(255, 255, 255));
         answerD.setText("Answer 4");
+        answerD.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                answerDMouseClicked(evt);
+            }
+        });
         answerBoxPanel.add(answerD);
 
         jPanel3.setLayout(new java.awt.GridLayout(1, 0));
@@ -202,6 +225,82 @@ public class GameFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void answerAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_answerAMouseClicked
+        // TODO add your handling code here:
+        int currentQuestion = Integer.parseInt(questionNumber.getText());
+
+        if (qm.getQuestions().get(currentQuestion - 1).getAnswerIndex() == 1) {
+            System.out.println("correct!!!");
+            this.bank.setMoney(qm.getQuestions().get(currentQuestion - 1).getQuestionValue());
+            System.out.println("bank: " + this.bank.getAvaiBank());
+            JOptionPane.showMessageDialog(null, "That's correct, well done! Yeet!\nBank: " + this.bank.getAvaiBank(), "CORRECT!", JOptionPane.INFORMATION_MESSAGE);
+            this.start(currentQuestion);
+        } else {
+            System.out.println("WRONG!");
+            JOptionPane.showMessageDialog(null, "That's INCORRECT!", "INCORRECT!", JOptionPane.ERROR_MESSAGE);
+            this.setVisible(false);
+            MainScreen ms = new MainScreen();
+            ms.setVisible(true);
+        }
+    }//GEN-LAST:event_answerAMouseClicked
+
+    private void answerBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_answerBMouseClicked
+        // TODO add your handling code here:
+        int currentQuestion = Integer.parseInt(questionNumber.getText());
+
+        if (qm.getQuestions().get(currentQuestion - 1).getAnswerIndex() == 2) {
+            System.out.println("correct!!!");
+            this.bank.setMoney(qm.getQuestions().get(currentQuestion - 1).getQuestionValue());
+            System.out.println("bank: " + this.bank.getAvaiBank());
+            JOptionPane.showMessageDialog(null, "That's correct, well done! Yeet!\nBank: " + this.bank.getAvaiBank(), "CORRECT!", JOptionPane.INFORMATION_MESSAGE);
+            this.start(currentQuestion);
+        } else {
+            System.out.println("WRONG!");
+            JOptionPane.showMessageDialog(null, "That's INCORRECT!", "INCORRECT!", JOptionPane.ERROR_MESSAGE);
+            this.setVisible(false);
+            MainScreen ms = new MainScreen();
+            ms.setVisible(true);
+        }
+    }//GEN-LAST:event_answerBMouseClicked
+
+    private void answerCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_answerCMouseClicked
+        // TODO add your handling code here:
+        int currentQuestion = Integer.parseInt(questionNumber.getText());
+
+        if (qm.getQuestions().get(currentQuestion - 1).getAnswerIndex() == 3) {
+            System.out.println("correct!!!");
+            this.bank.setMoney(qm.getQuestions().get(currentQuestion - 1).getQuestionValue());
+            System.out.println("bank: " + this.bank.getAvaiBank());
+            JOptionPane.showMessageDialog(null, "That's correct, well done! Yeet!\nBank: " + this.bank.getAvaiBank(), "CORRECT!", JOptionPane.INFORMATION_MESSAGE);
+            this.start(currentQuestion);
+        } else {
+            System.out.println("WRONG!");
+            JOptionPane.showMessageDialog(null, "That's INCORRECT!", "INCORRECT!", JOptionPane.ERROR_MESSAGE);
+            this.setVisible(false);
+            MainScreen ms = new MainScreen();
+            ms.setVisible(true);
+        }
+    }//GEN-LAST:event_answerCMouseClicked
+
+    private void answerDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_answerDMouseClicked
+        // TODO add your handling code here:
+        int currentQuestion = Integer.parseInt(questionNumber.getText());
+
+        if (qm.getQuestions().get(currentQuestion - 1).getAnswerIndex() == 4) {
+            System.out.println("correct!!!");
+            this.bank.setMoney(qm.getQuestions().get(currentQuestion - 1).getQuestionValue());
+            System.out.println("bank: " + this.bank.getAvaiBank());
+            JOptionPane.showMessageDialog(null, "That's correct, well done! Yeet!\nBank: " + this.bank.getAvaiBank(), "CORRECT!", JOptionPane.INFORMATION_MESSAGE);
+            this.start(currentQuestion);
+        } else {
+            System.out.println("WRONG!");
+            JOptionPane.showMessageDialog(null, "That's INCORRECT!", "INCORRECT!", JOptionPane.ERROR_MESSAGE);
+            this.setVisible(false);
+            MainScreen ms = new MainScreen();
+            ms.setVisible(true);
+        }
+    }//GEN-LAST:event_answerDMouseClicked
+
     public static void main(String args[]) {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -220,7 +319,6 @@ public class GameFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
@@ -231,17 +329,38 @@ public class GameFrame extends javax.swing.JFrame {
     private javax.swing.JLabel questionText;
     private static javax.swing.JLabel questionTitle;
     private javax.swing.JPanel questionTitlePanel;
+    private static javax.swing.JLabel questionValue;
     // End of variables declaration//GEN-END:variables
 
-    public void start() {
+    public void start(int i) {
         questionCount = 0;
 
-        for (int i = 0; i < qm.getQuestions().size(); i++) {
-            this.questionNumber.setText(String.valueOf(i + 1));
-            this.questionTitle.setText(qm.getQuestions().get(i).getTitle());
-            this.answerA.setText(qm.getQuestions().get(i).getAnswerOne());
-            this.answerB.setText(qm.getQuestions().get(i).getAnswerTwo());
-            this.answerC.setText(qm.getQuestions().get(i).getAnswerThree());
-        }
+        Thread t = new Thread(new Runnable() {
+            boolean test = true;
+
+            public void run() {
+                //for (int i = 0; i < qm.getQuestions().size(); i++) {
+                //while (test) {
+                GameFrame.questionNumber.setText(String.valueOf(i + 1));
+                GameFrame.questionTitle.setText(qm.getQuestions().get(i).getTitle());
+                GameFrame.answerA.setText(qm.getQuestions().get(i).getAnswerOne());
+                GameFrame.answerB.setText(qm.getQuestions().get(i).getAnswerTwo());
+                GameFrame.answerC.setText(qm.getQuestions().get(i).getAnswerThree());
+                GameFrame.answerD.setText(qm.getQuestions().get(i).getAnswerFour());
+                GameFrame.questionValue.setText(String.valueOf(qm.getQuestions().get(i).getQuestionValue()));
+
+                /*
+                        answerA.addActionListener(new ActionListener() {
+                            @Override
+                            public void actionPerformed(ActionEvent e) {
+                                
+                            }
+                        });
+                 */
+                //}
+            }
+            //}
+        });
+        t.start();
     }
 }
