@@ -5,17 +5,26 @@
  */
 package comp603_cui_whowantstobeamillionaire;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Scanner;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
- * @author Jona Stevenson
+ * @author Charles Monaghan & Jona Stevenson
  */
 public class LeaderboardFrame extends javax.swing.JFrame {
+    private static final String LEADERBOARD = "src/comp603_cui_whowantstobeamillionaire/leaderboard.txt";
 
     /**
      * Creates new form LeaderboardFrame
      */
     public LeaderboardFrame() {
         initComponents();
+        this.importLeaderboard();
+        this.generateTable();
     }
 
     /**
@@ -30,35 +39,17 @@ public class LeaderboardFrame extends javax.swing.JFrame {
         titlePanel = new javax.swing.JPanel();
         leaderboardLabel = new javax.swing.JLabel();
         menuPanel = new javax.swing.JPanel();
-        backToMenuButton = new javax.swing.JButton();
         tablePanel = new javax.swing.JScrollPane();
         leaderboardTable = new javax.swing.JTable();
+        backToMenuButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         leaderboardLabel.setText("Leaderboard");
         titlePanel.add(leaderboardLabel);
 
-        backToMenuButton.setText("Back to Main Menu");
-        backToMenuButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backToMenuButtonActionPerformed(evt);
-            }
-        });
-        menuPanel.add(backToMenuButton);
-
         leaderboardTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"1", null, null},
-                {"2", null, null},
-                {"3", null, null},
-                {"4", null, null},
-                {"5", null, null},
-                {"6", null, null},
-                {"7", null, null},
-                {"8", null, null},
-                {"9", null, null},
-                {"10", null, null}
             },
             new String [] {
                 "Rank", "Player Name", "Score"
@@ -78,6 +69,13 @@ public class LeaderboardFrame extends javax.swing.JFrame {
             leaderboardTable.getColumnModel().getColumn(0).setPreferredWidth(30);
         }
 
+        backToMenuButton.setText("Back to Main Menu");
+        backToMenuButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backToMenuButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -85,26 +83,36 @@ public class LeaderboardFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(67, 67, 67)
-                        .addComponent(tablePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(124, 124, 124)
                         .addComponent(titlePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(118, 118, 118)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(53, 53, 53)
+                                .addComponent(tablePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(backToMenuButton)
+                                .addGap(62, 62, 62)))
                         .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(titlePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(tablePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(225, 225, 225)
+                        .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(tablePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                        .addComponent(backToMenuButton))))
         );
 
         pack();
@@ -160,4 +168,42 @@ public class LeaderboardFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane tablePanel;
     private javax.swing.JPanel titlePanel;
     // End of variables declaration//GEN-END:variables
+
+    private void generateTable(){
+        System.out.println("Sorted leaderboard generated");
+        ArrayList<Player> player = importLeaderboard();
+        DefaultTableModel model = (DefaultTableModel) leaderboardTable.getModel();
+        int leaderboardCount = 1;
+        // Add sorted players to the leaderboard
+        for (Player i : player) {
+            System.out.println(leaderboardCount + ") " + i);
+            model.addRow(new Object[]{leaderboardCount,i.getName(), i.getScore()});
+            leaderboardCount++;
+        }
+    }
+    
+     private ArrayList<Player> importLeaderboard() {
+        ArrayList<Player> playerScores = new ArrayList<>();
+        File file = new File(LEADERBOARD);
+
+        // Read each line of leaderboard.txt and split "," into name & score
+        try (Scanner scanner = new Scanner(file)) {
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+
+                String[] parts = line.split(",");
+                String lbName = parts[0];
+                int score = Integer.parseInt(parts[1]);
+
+                playerScores.add(new Player(lbName, score));
+
+                // Sorts list by player scores high -> low
+                playerScores.sort(Comparator.comparingInt(Player::getScore).reversed());
+            }
+        } catch (Exception e) {
+            System.out.println("Couldn't import questions.");
+            System.out.println("Error: " + e.getMessage());
+        }
+        return playerScores;
+     }
 }
