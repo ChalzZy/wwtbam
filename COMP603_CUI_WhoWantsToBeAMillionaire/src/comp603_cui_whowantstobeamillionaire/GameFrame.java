@@ -226,79 +226,19 @@ public class GameFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void answerAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_answerAMouseClicked
-        // TODO add your handling code here:
-        int currentQuestion = Integer.parseInt(questionNumber.getText());
-
-        if (qm.getQuestions().get(currentQuestion - 1).getAnswerIndex() == 1) {
-            System.out.println("correct!!!");
-            this.bank.setMoney(qm.getQuestions().get(currentQuestion - 1).getQuestionValue());
-            System.out.println("bank: " + this.bank.getAvaiBank());
-            JOptionPane.showMessageDialog(null, "That's correct, well done! Yeet!\nBank: " + this.bank.getAvaiBank(), "CORRECT!", JOptionPane.INFORMATION_MESSAGE);
-            this.start(currentQuestion);
-        } else {
-            System.out.println("WRONG!");
-            JOptionPane.showMessageDialog(null, "That's INCORRECT!", "INCORRECT!", JOptionPane.ERROR_MESSAGE);
-            this.setVisible(false);
-            MainScreen ms = new MainScreen();
-            ms.setVisible(true);
-        }
+        checkAnswer(1);
     }//GEN-LAST:event_answerAMouseClicked
 
     private void answerBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_answerBMouseClicked
-        // TODO add your handling code here:
-        int currentQuestion = Integer.parseInt(questionNumber.getText());
-
-        if (qm.getQuestions().get(currentQuestion - 1).getAnswerIndex() == 2) {
-            System.out.println("correct!!!");
-            this.bank.setMoney(qm.getQuestions().get(currentQuestion - 1).getQuestionValue());
-            System.out.println("bank: " + this.bank.getAvaiBank());
-            JOptionPane.showMessageDialog(null, "That's correct, well done! Yeet!\nBank: " + this.bank.getAvaiBank(), "CORRECT!", JOptionPane.INFORMATION_MESSAGE);
-            this.start(currentQuestion);
-        } else {
-            System.out.println("WRONG!");
-            JOptionPane.showMessageDialog(null, "That's INCORRECT!", "INCORRECT!", JOptionPane.ERROR_MESSAGE);
-            this.setVisible(false);
-            MainScreen ms = new MainScreen();
-            ms.setVisible(true);
-        }
+        checkAnswer(2);
     }//GEN-LAST:event_answerBMouseClicked
 
     private void answerCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_answerCMouseClicked
-        // TODO add your handling code here:
-        int currentQuestion = Integer.parseInt(questionNumber.getText());
-
-        if (qm.getQuestions().get(currentQuestion - 1).getAnswerIndex() == 3) {
-            System.out.println("correct!!!");
-            this.bank.setMoney(qm.getQuestions().get(currentQuestion - 1).getQuestionValue());
-            System.out.println("bank: " + this.bank.getAvaiBank());
-            JOptionPane.showMessageDialog(null, "That's correct, well done! Yeet!\nBank: " + this.bank.getAvaiBank(), "CORRECT!", JOptionPane.INFORMATION_MESSAGE);
-            this.start(currentQuestion);
-        } else {
-            System.out.println("WRONG!");
-            JOptionPane.showMessageDialog(null, "That's INCORRECT!", "INCORRECT!", JOptionPane.ERROR_MESSAGE);
-            this.setVisible(false);
-            MainScreen ms = new MainScreen();
-            ms.setVisible(true);
-        }
+        checkAnswer(3);
     }//GEN-LAST:event_answerCMouseClicked
 
     private void answerDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_answerDMouseClicked
-        // TODO add your handling code here:
-        int currentQuestion = Integer.parseInt(questionNumber.getText());
-
-        if (qm.getQuestions().get(currentQuestion - 1).getAnswerIndex() == 4) {
-            System.out.println("correct!!!");
-            this.bank.setMoney(qm.getQuestions().get(currentQuestion - 1).getQuestionValue());
-            System.out.println("bank: " + this.bank.getAvaiBank());
-            JOptionPane.showMessageDialog(null, "That's correct, well done! Yeet!\nBank: " + this.bank.getAvaiBank(), "CORRECT!", JOptionPane.INFORMATION_MESSAGE);
-            this.start(currentQuestion);
-        } else {
-            System.out.println("WRONG!");
-            JOptionPane.showMessageDialog(null, "That's INCORRECT!", "INCORRECT!", JOptionPane.ERROR_MESSAGE);
-            this.setVisible(false);
-            MainScreen ms = new MainScreen();
-            ms.setVisible(true);
-        }
+        checkAnswer(4);
     }//GEN-LAST:event_answerDMouseClicked
 
     public static void main(String args[]) {
@@ -333,34 +273,34 @@ public class GameFrame extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void start(int i) {
-        questionCount = 0;
+        GameFrame.questionNumber.setText(String.valueOf(i + 1));
+        GameFrame.questionTitle.setText(qm.getQuestions().get(i).getTitle());
+        GameFrame.answerA.setText(qm.getQuestions().get(i).getAnswerOne());
+        GameFrame.answerB.setText(qm.getQuestions().get(i).getAnswerTwo());
+        GameFrame.answerC.setText(qm.getQuestions().get(i).getAnswerThree());
+        GameFrame.answerD.setText(qm.getQuestions().get(i).getAnswerFour());
+        GameFrame.questionValue.setText(String.valueOf(qm.getQuestions().get(i).getQuestionValue()));
+    }
 
-        Thread t = new Thread(new Runnable() {
-            boolean test = true;
+    public void checkAnswer(int i) {
+        int currentQuestion = Integer.parseInt(questionNumber.getText());
 
-            public void run() {
-                //for (int i = 0; i < qm.getQuestions().size(); i++) {
-                //while (test) {
-                GameFrame.questionNumber.setText(String.valueOf(i + 1));
-                GameFrame.questionTitle.setText(qm.getQuestions().get(i).getTitle());
-                GameFrame.answerA.setText(qm.getQuestions().get(i).getAnswerOne());
-                GameFrame.answerB.setText(qm.getQuestions().get(i).getAnswerTwo());
-                GameFrame.answerC.setText(qm.getQuestions().get(i).getAnswerThree());
-                GameFrame.answerD.setText(qm.getQuestions().get(i).getAnswerFour());
-                GameFrame.questionValue.setText(String.valueOf(qm.getQuestions().get(i).getQuestionValue()));
-
-                /*
-                        answerA.addActionListener(new ActionListener() {
-                            @Override
-                            public void actionPerformed(ActionEvent e) {
-                                
-                            }
-                        });
-                 */
-                //}
+        if (qm.getQuestions().get(currentQuestion - 1).getAnswerIndex() == i) {
+            this.bank.setMoney(qm.getQuestions().get(currentQuestion - 1).getQuestionValue());
+            JOptionPane.showMessageDialog(null, "That's correct, well done!\nBank: $" + this.bank.getAvaiBank(), "CORRECT", JOptionPane.INFORMATION_MESSAGE);
+            this.start(currentQuestion);
+        } else {
+            if ((currentQuestion - 1) == 0) {
+                JOptionPane.showMessageDialog(null, "That's incorrect!\nYou got no questions correct.", "Incorrect", JOptionPane.ERROR_MESSAGE);
+            } else if ((currentQuestion - 1) == 1) {
+                JOptionPane.showMessageDialog(null, "That's incorrect!\nYou got " + (currentQuestion - 1) + " question correct, earning $" + this.bank.getAvaiBank() + ".\nYour score has been recorded on the leaderboard.", "Incorrect", JOptionPane.ERROR_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "That's incorrect!\nYou got " + (currentQuestion - 1) + " questions correct, earning $" + this.bank.getAvaiBank() + ".\nYour score has been recorded on the leaderboard.", "Incorrect", JOptionPane.ERROR_MESSAGE);
             }
-            //}
-        });
-        t.start();
+
+            this.setVisible(false);
+            MainScreen ms = new MainScreen();
+            ms.setVisible(true);
+        }
     }
 }
