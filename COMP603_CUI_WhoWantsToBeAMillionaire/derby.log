@@ -1,7 +1,7 @@
-Wed May 12 18:37:10 NZST 2021 : Apache Derby Network Server - 10.14.2.0 - (1828579) started and ready to accept connections on port 1527
+Wed May 12 19:22:31 NZST 2021 : Apache Derby Network Server - 10.14.2.0 - (1828579) started and ready to accept connections on port 1527
 ----------------------------------------------------------------
-Wed May 12 18:37:13 NZST 2021:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0179-5f4b-24f4-ffffb9aa34cc 
+Wed May 12 19:22:33 NZST 2021:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0179-5f74-a6cf-ffffb9aa34cc 
 on database directory C:\Users\jonat\Documents\GitHub\wwtbam\COMP603_CUI_WhoWantsToBeAMillionaire\sample with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
 Loaded from file:/C:/Users/jonat/Documents/NetBeansProjects/PDC_Tutorials/db/lib/derby.jar
 java.vendor=Oracle Corporation

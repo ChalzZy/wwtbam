@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 public class GameFrame extends javax.swing.JFrame {
 
     private static Player newPlayer;
-    private Leaderboard lb;
+    private LeaderboardFrame lbf;
     private QuestionManager qm;
     private Bank bank;
 
@@ -25,7 +25,7 @@ public class GameFrame extends javax.swing.JFrame {
     public GameFrame(Player player) {
         initComponents();
         GameFrame.newPlayer = player;
-        this.lb = new Leaderboard();
+        this.lbf = new LeaderboardFrame();
         this.qm = new QuestionManager();
         this.bank = new Bank();
         this.importQuestions();
@@ -252,9 +252,15 @@ public class GameFrame extends javax.swing.JFrame {
             if ((currentQuestion - 1) == 0) {
                 JOptionPane.showMessageDialog(null, "That's incorrect!\nYou got no questions correct.", "Incorrect", JOptionPane.ERROR_MESSAGE);
             } else if ((currentQuestion - 1) == 1) {
+                GameFrame.newPlayer.setScore(bank.getAvaiBank());
+                lbf.appendLeaderboard(newPlayer.getName(), newPlayer.getScore());
+                
                 JOptionPane.showMessageDialog(null, "That's incorrect!\nYou got " + (currentQuestion - 1) + " question correct, earning $"
                         + this.bank.getAvaiBank() + ".\nYour score has been recorded on the leaderboard.", "Incorrect", JOptionPane.ERROR_MESSAGE);
             } else {
+                GameFrame.newPlayer.setScore(bank.getAvaiBank());
+                lbf.appendLeaderboard(newPlayer.getName(), newPlayer.getScore());
+                
                 JOptionPane.showMessageDialog(null, "That's incorrect!\nYou got " + (currentQuestion - 1) + " questions correct, earning $"
                         + this.bank.getAvaiBank() + ".\nYour score has been recorded on the leaderboard.", "Incorrect", JOptionPane.ERROR_MESSAGE);
             }
