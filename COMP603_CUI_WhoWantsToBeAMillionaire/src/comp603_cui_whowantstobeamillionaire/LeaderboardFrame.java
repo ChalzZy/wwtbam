@@ -6,6 +6,7 @@
 package comp603_cui_whowantstobeamillionaire;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Scanner;
@@ -192,5 +193,20 @@ public class LeaderboardFrame extends javax.swing.JFrame {
             System.out.println("Error: " + e.getMessage());
         }
         return playerScores;
+    }
+    
+        public void appendLeaderboard(String name, int bank) {
+        // Open file in append mode
+        try {
+            FileWriter fw = new FileWriter("src/comp603_cui_whowantstobeamillionaire/leaderboard.txt", true);
+
+            // Append item
+            fw.append("\n" + name + "," + bank);
+
+            // Close the file
+            fw.close();
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 }
