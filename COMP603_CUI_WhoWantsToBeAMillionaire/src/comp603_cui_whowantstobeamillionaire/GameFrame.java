@@ -44,17 +44,21 @@ public class GameFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         questionTitle = new javax.swing.JLabel();
         answerBoxPanel = new javax.swing.JPanel();
-        answerA = new javax.swing.JButton();
-        answerB = new javax.swing.JButton();
-        answerC = new javax.swing.JButton();
-        answerD = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        fiftyFifty = new javax.swing.JButton();
-        askTheAudience = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
+        answerA = new javax.swing.JButton();
+        answerB = new javax.swing.JButton();
+        answerC = new javax.swing.JButton();
+        answerD = new javax.swing.JButton();
+        askAudienceAnswer1 = new javax.swing.JLabel();
+        askAudienceAnswer2 = new javax.swing.JLabel();
+        askAudienceAnswer3 = new javax.swing.JLabel();
+        askAudienceAnswer4 = new javax.swing.JLabel();
+        fiftyFifty = new javax.swing.JButton();
+        askTheAudience = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -83,68 +87,7 @@ public class GameFrame extends javax.swing.JFrame {
 
         answerBoxPanel.setLayout(new java.awt.GridLayout(1, 0));
 
-        answerA.setBackground(new java.awt.Color(51, 153, 255));
-        answerA.setForeground(new java.awt.Color(255, 255, 255));
-        answerA.setText("Answer 1");
-        answerA.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                answerAActionPerformed(evt);
-            }
-        });
-        answerBoxPanel.add(answerA);
-
-        answerB.setBackground(new java.awt.Color(51, 153, 255));
-        answerB.setForeground(new java.awt.Color(255, 255, 255));
-        answerB.setText("Answer 2");
-        answerB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                answerBActionPerformed(evt);
-            }
-        });
-        answerBoxPanel.add(answerB);
-
-        answerC.setBackground(new java.awt.Color(51, 153, 255));
-        answerC.setForeground(new java.awt.Color(255, 255, 255));
-        answerC.setText("Answer 3");
-        answerC.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                answerCActionPerformed(evt);
-            }
-        });
-        answerBoxPanel.add(answerC);
-
-        answerD.setBackground(new java.awt.Color(51, 153, 255));
-        answerD.setForeground(new java.awt.Color(255, 255, 255));
-        answerD.setText("Answer 4");
-        answerD.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                answerDActionPerformed(evt);
-            }
-        });
-        answerBoxPanel.add(answerD);
-
         jPanel3.setLayout(new java.awt.GridLayout(1, 0));
-
-        fiftyFifty.setText("50/50");
-        fiftyFifty.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fiftyFiftyActionPerformed(evt);
-            }
-        });
-        jPanel3.add(fiftyFifty);
-
-        askTheAudience.setText("Ask The Audience");
-        askTheAudience.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                askTheAudienceMouseClicked(evt);
-            }
-        });
-        askTheAudience.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                askTheAudienceActionPerformed(evt);
-            }
-        });
-        jPanel3.add(askTheAudience);
 
         jPanel4.add(jLabel5);
 
@@ -169,6 +112,69 @@ public class GameFrame extends javax.swing.JFrame {
 
         jPanel4.add(jScrollPane1);
 
+        answerA.setBackground(new java.awt.Color(51, 153, 255));
+        answerA.setForeground(new java.awt.Color(255, 255, 255));
+        answerA.setText("Answer 1");
+        answerA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                answerAActionPerformed(evt);
+            }
+        });
+
+        answerB.setBackground(new java.awt.Color(51, 153, 255));
+        answerB.setForeground(new java.awt.Color(255, 255, 255));
+        answerB.setText("Answer 2");
+        answerB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                answerBActionPerformed(evt);
+            }
+        });
+
+        answerC.setBackground(new java.awt.Color(51, 153, 255));
+        answerC.setForeground(new java.awt.Color(255, 255, 255));
+        answerC.setText("Answer 3");
+        answerC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                answerCActionPerformed(evt);
+            }
+        });
+
+        answerD.setBackground(new java.awt.Color(51, 153, 255));
+        answerD.setForeground(new java.awt.Color(255, 255, 255));
+        answerD.setText("Answer 4");
+        answerD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                answerDActionPerformed(evt);
+            }
+        });
+
+        askAudienceAnswer1.setText("20%");
+
+        askAudienceAnswer2.setText("30%");
+
+        askAudienceAnswer3.setText("40%");
+
+        askAudienceAnswer4.setText("10%");
+
+        fiftyFifty.setText("50/50");
+        fiftyFifty.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fiftyFiftyActionPerformed(evt);
+            }
+        });
+
+        askTheAudience.setText("Ask The Audience");
+        askTheAudience.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                askTheAudienceMouseClicked(evt);
+            }
+        });
+        askTheAudience.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                askTheAudienceActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -176,24 +182,73 @@ public class GameFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 758, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(answerBoxPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(questionTitlePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(answerA, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(answerB, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(answerC, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(answerD, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(72, 72, 72)
+                                .addComponent(askAudienceAnswer1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(askAudienceAnswer2)
+                                .addGap(156, 156, 156)
+                                .addComponent(askAudienceAnswer3)
+                                .addGap(156, 156, 156)
+                                .addComponent(askAudienceAnswer4)
+                                .addGap(84, 84, 84)))
+                        .addComponent(answerBoxPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(questionTitlePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(fiftyFifty, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(askTheAudience, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 756, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(questionTitlePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(answerBoxPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(answerBoxPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(answerA, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(answerB, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(answerC, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(answerD, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(askAudienceAnswer3)
+                                    .addComponent(askAudienceAnswer4)
+                                    .addComponent(askAudienceAnswer2)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(askAudienceAnswer1)))))
+                .addGap(7, 7, 7)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(fiftyFifty)
+                    .addComponent(askTheAudience))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -223,7 +278,8 @@ public class GameFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_fiftyFiftyActionPerformed
 
     private void askTheAudienceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_askTheAudienceActionPerformed
-        // TODO add your handling code here:
+        int currentQuestion = Integer.parseInt(questionNumber.getText());
+        askTheAudience(qm, currentQuestion);
     }//GEN-LAST:event_askTheAudienceActionPerformed
 
     private void askTheAudienceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_askTheAudienceMouseClicked
@@ -243,6 +299,10 @@ public class GameFrame extends javax.swing.JFrame {
     private javax.swing.JPanel answerBoxPanel;
     private static javax.swing.JButton answerC;
     private static javax.swing.JButton answerD;
+    private javax.swing.JLabel askAudienceAnswer1;
+    private javax.swing.JLabel askAudienceAnswer2;
+    private javax.swing.JLabel askAudienceAnswer3;
+    private javax.swing.JLabel askAudienceAnswer4;
     private javax.swing.JButton askTheAudience;
     private javax.swing.JButton fiftyFifty;
     private javax.swing.JLabel jLabel2;
@@ -271,6 +331,11 @@ public class GameFrame extends javax.swing.JFrame {
         GameFrame.answerB.setEnabled(true);
         GameFrame.answerC.setEnabled(true);
         GameFrame.answerD.setEnabled(true);
+        askAudienceAnswer1.setVisible(false);
+        askAudienceAnswer2.setVisible(false);
+        askAudienceAnswer3.setVisible(false);
+        askAudienceAnswer4.setVisible(false);
+        
     }
 
     public void checkAnswer(int i) {
@@ -306,7 +371,7 @@ public class GameFrame extends javax.swing.JFrame {
     public void fiftyFifty(QuestionManager qm, int currentQuestion) {
         int randomNumOne;
         int randomNumTwo;
-        System.out.println("Working!");
+        System.out.println("fiftyFity() Working!");
         while (true) {
             // Generates 2 random numbers between 1-4
             randomNumOne = 1 + (int) (Math.random() * ((4 - 1) + 1));
@@ -325,30 +390,69 @@ public class GameFrame extends javax.swing.JFrame {
         if (randomNumOne == 1 || randomNumTwo == 1) {
             System.out.println(qm.getQuestions().get(currentQuestion).getAnswerOne());
         } else {
-            System.out.println("DISABLED!");
+            System.out.println("A PANEL DISABLED!");
             answerA.setEnabled(false);
         }
         if (randomNumOne == 2 || randomNumTwo == 2) {
             System.out.println(qm.getQuestions().get(currentQuestion).getAnswerTwo());
         } else {
             answerB.setEnabled(false);
-            System.out.println("DISABLED!");
+            System.out.println("B PANEL DISABLED!");
         }
         if (randomNumOne == 3 || randomNumTwo == 3) {
             System.out.println(qm.getQuestions().get(currentQuestion).getAnswerThree());
         } else {
             answerC.setEnabled(false);    
-            System.out.println("DISABLED!");
+            System.out.println("C PANEL DISABLED!");
         }
         if (randomNumOne == 4 || randomNumTwo == 4) {
             System.out.println(qm.getQuestions().get(currentQuestion).getAnswerFour());
         } else {
             answerD.setEnabled(false);
-            System.out.println("DISABLED!");
+            System.out.println("D PANEL DISABLED!");
         }
-
         fiftyFifty.setEnabled(false);
+    }
+    
+    public void askTheAudience(QuestionManager qm, int currentQuestion) {
+        String answer = "61%";
+        String incorrect2 = "10%";
+        String incorrect3 = "15%";
+        String incorrect4 = "14%";
         
+        int correctAnswer = qm.getQuestions().get(currentQuestion - 1).getAnswerIndex();
+        System.out.println(correctAnswer);
+        switch (correctAnswer) {
+            case 1:
+                askAudienceAnswer1.setText(answer);
+                askAudienceAnswer2.setText(incorrect2);
+                askAudienceAnswer3.setText(incorrect3);
+                askAudienceAnswer4.setText(incorrect4);
+                break;
+            case 2:
+                askAudienceAnswer1.setText(incorrect2);
+                askAudienceAnswer2.setText(answer);
+                askAudienceAnswer3.setText(incorrect4);
+                askAudienceAnswer4.setText(incorrect3);
+                break;
+            case 3:                
+                askAudienceAnswer1.setText(incorrect2);
+                askAudienceAnswer2.setText(incorrect3);
+                askAudienceAnswer3.setText(answer);
+                askAudienceAnswer4.setText(incorrect4);
+                break;
+            case 4:
+                askAudienceAnswer1.setText(incorrect4);
+                askAudienceAnswer2.setText(incorrect2);
+                askAudienceAnswer3.setText(incorrect3);
+                askAudienceAnswer4.setText(answer);
+                break;
+        }
+        askAudienceAnswer1.setVisible(true);
+        askAudienceAnswer2.setVisible(true);
+        askAudienceAnswer3.setVisible(true);
+        askAudienceAnswer4.setVisible(true);
+        askTheAudience.setEnabled(false);
     }
 
     public final void importQuestions() {
