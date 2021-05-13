@@ -90,6 +90,7 @@ public class GameFrame extends javax.swing.JFrame {
         jPanel3.setLayout(new java.awt.GridLayout(1, 0));
 
         imageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/comp603_cui_whowantstobeamillionaire/wwtbam.jpg"))); // NOI18N
+        imageLabel.setPreferredSize(new java.awt.Dimension(640, 340));
         jPanel4.add(imageLabel);
 
         jScrollPane1.setToolTipText("");
