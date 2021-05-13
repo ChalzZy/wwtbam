@@ -13,7 +13,7 @@ import java.sql.Statement;
 
 /**
  *
- * @author Charles
+ * @author Jona Stevenson & Charles Monaghan
  */
 public class InitiateDB {
     

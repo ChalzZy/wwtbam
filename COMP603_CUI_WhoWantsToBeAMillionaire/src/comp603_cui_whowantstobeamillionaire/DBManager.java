@@ -13,7 +13,7 @@ import java.sql.Statement;
 
 /**
  *
- * @author Charles
+ * @author Jona Stevenson & Charles Monaghan
  */
 public final class DBManager {
    private static final String URL = "jdbc:derby://localhost:1527/sample;create=true"; 

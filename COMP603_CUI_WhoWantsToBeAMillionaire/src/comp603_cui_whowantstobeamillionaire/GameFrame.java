@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Jona Stevenson
+ * @author Jona Stevenson & Charles Monaghan
  */
 public class GameFrame extends javax.swing.JFrame {
 
@@ -46,7 +46,7 @@ public class GameFrame extends javax.swing.JFrame {
         answerBoxPanel = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        imageLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         answerA = new javax.swing.JButton();
@@ -89,7 +89,8 @@ public class GameFrame extends javax.swing.JFrame {
 
         jPanel3.setLayout(new java.awt.GridLayout(1, 0));
 
-        jPanel4.add(jLabel5);
+        imageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/comp603_cui_whowantstobeamillionaire/wwtbam.jpg"))); // NOI18N
+        jPanel4.add(imageLabel);
 
         jScrollPane1.setToolTipText("");
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
@@ -211,6 +212,7 @@ public class GameFrame extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(fiftyFifty, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
                                 .addComponent(askTheAudience, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 756, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))))
@@ -237,10 +239,10 @@ public class GameFrame extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(askAudienceAnswer3)
-                                    .addComponent(askAudienceAnswer4)
-                                    .addComponent(askAudienceAnswer2)))
+                                    .addComponent(askAudienceAnswer2)
+                                    .addComponent(askAudienceAnswer4)))
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(askAudienceAnswer1)))))
@@ -305,8 +307,8 @@ public class GameFrame extends javax.swing.JFrame {
     private javax.swing.JLabel askAudienceAnswer4;
     private javax.swing.JButton askTheAudience;
     private javax.swing.JButton fiftyFifty;
+    private javax.swing.JLabel imageLabel;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;

@@ -2,7 +2,7 @@ package comp603_cui_whowantstobeamillionaire;
 
 /**
  *
- * @author Jona Stevenson
+ * @author Jona Stevenson & Charles Monaghan
  */
 public class SignInFrame extends javax.swing.JFrame {
 

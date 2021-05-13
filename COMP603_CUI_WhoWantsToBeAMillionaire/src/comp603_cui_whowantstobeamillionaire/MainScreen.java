@@ -2,7 +2,7 @@ package comp603_cui_whowantstobeamillionaire;
 
 /**
  *
- * @author Charles
+ * @author Jona Stevenson & Charles Monaghan
  */
 public class MainScreen extends javax.swing.JFrame {
 
