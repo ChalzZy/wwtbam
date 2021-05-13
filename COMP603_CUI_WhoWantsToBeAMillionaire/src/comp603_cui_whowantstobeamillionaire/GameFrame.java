@@ -16,6 +16,7 @@ public class GameFrame extends javax.swing.JFrame {
     private LeaderboardFrame lbf;
     private QuestionManager qm;
     private Bank bank;
+//    private Lifeline lifeline;
 
     /**
      * Creates new gameFrame
@@ -48,8 +49,8 @@ public class GameFrame extends javax.swing.JFrame {
         answerC = new javax.swing.JButton();
         answerD = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        jButton6 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        fiftyFifty = new javax.swing.JButton();
+        askTheAudience = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -124,13 +125,27 @@ public class GameFrame extends javax.swing.JFrame {
 
         jPanel3.setLayout(new java.awt.GridLayout(1, 0));
 
-        jButton6.setText("50/50");
-        jPanel3.add(jButton6);
+        fiftyFifty.setText("50/50");
+        fiftyFifty.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fiftyFiftyActionPerformed(evt);
+            }
+        });
+        jPanel3.add(fiftyFifty);
 
-        jButton5.setText("Ask The Audience");
-        jPanel3.add(jButton5);
+        askTheAudience.setText("Ask The Audience");
+        askTheAudience.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                askTheAudienceMouseClicked(evt);
+            }
+        });
+        askTheAudience.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                askTheAudienceActionPerformed(evt);
+            }
+        });
+        jPanel3.add(askTheAudience);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\jonat\\Desktop\\Who-Wants-To-Be-A-Millionaire_Jimmy-Kimmel-studio.jpg")); // NOI18N
         jPanel4.add(jLabel5);
 
         jScrollPane1.setToolTipText("");
@@ -202,6 +217,19 @@ public class GameFrame extends javax.swing.JFrame {
         checkAnswer(4);
     }//GEN-LAST:event_answerDActionPerformed
 
+    private void fiftyFiftyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fiftyFiftyActionPerformed
+        int currentQuestion = Integer.parseInt(questionNumber.getText());
+        fiftyFifty(qm, currentQuestion - 1);
+    }//GEN-LAST:event_fiftyFiftyActionPerformed
+
+    private void askTheAudienceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_askTheAudienceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_askTheAudienceActionPerformed
+
+    private void askTheAudienceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_askTheAudienceMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_askTheAudienceMouseClicked
+
     public static void main(String args[]) {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
@@ -215,8 +243,8 @@ public class GameFrame extends javax.swing.JFrame {
     private javax.swing.JPanel answerBoxPanel;
     private static javax.swing.JButton answerC;
     private static javax.swing.JButton answerD;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton askTheAudience;
+    private javax.swing.JButton fiftyFifty;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JList<String> jList1;
@@ -239,6 +267,10 @@ public class GameFrame extends javax.swing.JFrame {
         GameFrame.answerC.setText(qm.getQuestions().get(i).getAnswerThree());
         GameFrame.answerD.setText(qm.getQuestions().get(i).getAnswerFour());
         GameFrame.questionValue.setText(String.valueOf(qm.getQuestions().get(i).getQuestionValue()));
+        GameFrame.answerA.setEnabled(true);
+        GameFrame.answerB.setEnabled(true);
+        GameFrame.answerC.setEnabled(true);
+        GameFrame.answerD.setEnabled(true);
     }
 
     public void checkAnswer(int i) {
@@ -269,6 +301,54 @@ public class GameFrame extends javax.swing.JFrame {
             MainScreen ms = new MainScreen();
             ms.setVisible(true);
         }
+    }
+    
+    public void fiftyFifty(QuestionManager qm, int currentQuestion) {
+        int randomNumOne;
+        int randomNumTwo;
+        System.out.println("Working!");
+        while (true) {
+            // Generates 2 random numbers between 1-4
+            randomNumOne = 1 + (int) (Math.random() * ((4 - 1) + 1));
+            randomNumTwo = 1 + (int) (Math.random() * ((4 - 1) + 1));
+
+            // Checks that at least 1 number is the correct answer, and one is a random answer that isn't equal to number 1
+            if ((randomNumOne == qm.getQuestions().get(currentQuestion).getAnswerIndex()
+                    || randomNumTwo == qm.getQuestions().get(currentQuestion).getAnswerIndex()) && (randomNumOne != randomNumTwo)) {
+                break;
+            }
+        }
+        
+        System.out.println("Possible answers:");
+        
+        // Assigns each random number generated to it's applicable answer and prints it
+        if (randomNumOne == 1 || randomNumTwo == 1) {
+            System.out.println(qm.getQuestions().get(currentQuestion).getAnswerOne());
+        } else {
+            System.out.println("DISABLED!");
+            answerA.setEnabled(false);
+        }
+        if (randomNumOne == 2 || randomNumTwo == 2) {
+            System.out.println(qm.getQuestions().get(currentQuestion).getAnswerTwo());
+        } else {
+            answerB.setEnabled(false);
+            System.out.println("DISABLED!");
+        }
+        if (randomNumOne == 3 || randomNumTwo == 3) {
+            System.out.println(qm.getQuestions().get(currentQuestion).getAnswerThree());
+        } else {
+            answerC.setEnabled(false);    
+            System.out.println("DISABLED!");
+        }
+        if (randomNumOne == 4 || randomNumTwo == 4) {
+            System.out.println(qm.getQuestions().get(currentQuestion).getAnswerFour());
+        } else {
+            answerD.setEnabled(false);
+            System.out.println("DISABLED!");
+        }
+
+        fiftyFifty.setEnabled(false);
+        
     }
 
     public final void importQuestions() {
