@@ -24,6 +24,8 @@ public class MainScreen extends javax.swing.JFrame {
         exitButton = new javax.swing.JButton();
         titlePanel = new javax.swing.JPanel();
         titleLabel = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        logoLabel = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
@@ -61,6 +63,9 @@ public class MainScreen extends javax.swing.JFrame {
         titleLabel.setText("Welcome to Who Wants to be a Millionaire");
         titlePanel.add(titleLabel, java.awt.BorderLayout.CENTER);
 
+        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/comp603_cui_whowantstobeamillionaire/logo.png"))); // NOI18N
+        jPanel1.add(logoLabel);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -68,7 +73,9 @@ public class MainScreen extends javax.swing.JFrame {
             .addComponent(buttonPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(titlePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(titlePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -76,7 +83,9 @@ public class MainScreen extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(titlePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 211, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(buttonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -113,7 +122,9 @@ public class MainScreen extends javax.swing.JFrame {
     private javax.swing.JPanel buttonPanel;
     private javax.swing.JButton exitButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JButton leaderboardButton;
+    private javax.swing.JLabel logoLabel;
     private javax.swing.JButton playButton;
     private javax.swing.JLabel titleLabel;
     private javax.swing.JPanel titlePanel;

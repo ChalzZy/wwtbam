@@ -33,7 +33,10 @@
           <Component id="buttonPanel" alignment="0" pref="380" max="32767" attributes="0"/>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="titlePanel" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="jPanel1" max="32767" attributes="0"/>
+                  <Component id="titlePanel" max="32767" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -43,7 +46,9 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="titlePanel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="211" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jPanel1" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="buttonPanel" min="-2" pref="48" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -97,6 +102,19 @@
               <BorderConstraints direction="Center"/>
             </Constraint>
           </Constraints>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="jPanel1">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="logoLabel">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/comp603_cui_whowantstobeamillionaire/logo.png"/>
+            </Property>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
