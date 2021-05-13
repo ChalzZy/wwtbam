@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
- *
+ *  Initiates the database with questions
  * @author Jona Stevenson & Charles Monaghan
  */
 public class InitiateDB {
@@ -50,24 +50,6 @@ public class InitiateDB {
                     + "(10,'Cheddar cheese got its name from a village in what country?','A - England','B - France','C - Switzerland','D - Denmark',1,250000),\n"
                     + "(11,'From what language does the term ''R.S.V.P.'' originate?','A - Russian','B - Italian','C - Portuguese','D - Fench',4,500000),\n"
                     + "(12,'How many keys are on a standard piano?','A - 20','B - 54','C - 88','D - 100',3,1000000)");
-            this.statement.executeBatch();
-        } catch (SQLException ex) {
-            System.out.println(ex.getNextException());
-            System.out.println(ex.getMessage());
-        }
-    }
-
-    /**
-     * Add player to the leaderboard
-     *
-     * @param playerName Name of the player
-     * @param score Final game score
-     */
-    public void addToDBLeaderboard(String playerName, int score) {
-        try {
-            this.statement = conn.createStatement();
-            this.statement.addBatch("INSERT INTO LEADERBOARD VALUES "
-                    + "('" + playerName + "'," + score + ")");
             this.statement.executeBatch();
         } catch (SQLException ex) {
             System.out.println(ex.getNextException());

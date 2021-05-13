@@ -8,6 +8,7 @@ import java.util.Scanner;
 import javax.swing.table.DefaultTableModel;
 
 /**
+ * Leaderboard GUI
  * @author Charles Monaghan & Jona Stevenson
  */
 public class LeaderboardFrame extends javax.swing.JFrame {

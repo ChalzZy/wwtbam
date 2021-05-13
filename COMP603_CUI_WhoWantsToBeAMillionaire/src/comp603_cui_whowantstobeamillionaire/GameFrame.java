@@ -7,19 +7,18 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 /**
- *
+ *  The main game frame
  * @author Jona Stevenson & Charles Monaghan
  */
 public class GameFrame extends javax.swing.JFrame {
 
     private static Player newPlayer;
-    private LeaderboardFrame lbf;
-    private QuestionManager qm;
-    private Bank bank;
-    //private Lifeline lifeline;
-
+    private final LeaderboardFrame lbf;
+    private final QuestionManager qm;
+    private final Bank bank;
+    
     /**
-     * Creates new gameFrame
+     * Creates new GameFrame
      *
      * @param player
      */
@@ -289,6 +288,10 @@ public class GameFrame extends javax.swing.JFrame {
     private javax.swing.JLabel questionValueText;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * Initiate the game
+     * @param i the current question
+     */
     public void start(int i) {
         GameFrame.questionNumber.setText(String.valueOf(i + 1));
         GameFrame.questionTitle.setText(qm.getQuestions().get(i).getTitle());
@@ -307,7 +310,11 @@ public class GameFrame extends javax.swing.JFrame {
         askAudienceAnswer4.setVisible(false);
     }
 
-    public void checkAnswer(int i) {
+    /**
+     * Check if the answer is correct
+     * @param answer selected (1 - 4)
+     */
+    private void checkAnswer(int i) {
         int currentQuestion = Integer.parseInt(questionNumber.getText());
 
         if (qm.getQuestions().get(currentQuestion - 1).getAnswerIndex() == i) {
@@ -323,29 +330,36 @@ public class GameFrame extends javax.swing.JFrame {
                 this.start(currentQuestion);
             }
         } else {
-            if ((currentQuestion - 1) == 0) {
-                JOptionPane.showMessageDialog(null, "That's incorrect!\nYou got no questions correct.", "Incorrect", JOptionPane.ERROR_MESSAGE);
-            } else if ((currentQuestion - 1) == 1) {
-                GameFrame.newPlayer.setScore(bank.getAvaiBank());
-                lbf.appendLeaderboard(newPlayer.getName(), newPlayer.getScore());
-
-                JOptionPane.showMessageDialog(null, "That's incorrect!\nYou got " + (currentQuestion - 1) + " question correct, earning $"
-                        + this.bank.getAvaiBank() + ".\nYour score has been recorded on the leaderboard.", "Incorrect", JOptionPane.ERROR_MESSAGE);
-            } else {
-                GameFrame.newPlayer.setScore(bank.getAvaiBank());
-                lbf.appendLeaderboard(newPlayer.getName(), newPlayer.getScore());
-
-                JOptionPane.showMessageDialog(null, "That's incorrect!\nYou got " + (currentQuestion - 1) + " questions correct, earning $"
-                        + this.bank.getAvaiBank() + ".\nYour score has been recorded on the leaderboard.", "Incorrect", JOptionPane.ERROR_MESSAGE);
+            switch (currentQuestion - 1) {
+                case 0:
+                    JOptionPane.showMessageDialog(null, "That's incorrect!\nYou got no questions correct.", "Incorrect", JOptionPane.ERROR_MESSAGE);
+                    break;
+                case 1:
+                    GameFrame.newPlayer.setScore(bank.getAvaiBank());
+                    lbf.appendLeaderboard(newPlayer.getName(), newPlayer.getScore());
+                    JOptionPane.showMessageDialog(null, "That's incorrect!\nYou got " + (currentQuestion - 1) + " question correct, earning $"
+                            + this.bank.getAvaiBank() + ".\nYour score has been recorded on the leaderboard.", "Incorrect", JOptionPane.ERROR_MESSAGE);
+                    break;
+                default:
+                    GameFrame.newPlayer.setScore(bank.getAvaiBank());
+                    lbf.appendLeaderboard(newPlayer.getName(), newPlayer.getScore());
+                    JOptionPane.showMessageDialog(null, "That's incorrect!\nYou got " + (currentQuestion - 1) + " questions correct, earning $"
+                            + this.bank.getAvaiBank() + ".\nYour score has been recorded on the leaderboard.", "Incorrect", JOptionPane.ERROR_MESSAGE);
+                    break;
             }
-
+            
             this.setVisible(false);
             MainScreen ms = new MainScreen();
             ms.setVisible(true);
         }
     }
 
-    public void fiftyFifty(QuestionManager qm, int currentQuestion) {
+    /**
+     * Removes 50% of the questions. Leaving one correct and one incorrect answer.
+     * @param qm QuestionManager
+     * @param currentQuestion Integer current question
+     */
+    private void fiftyFifty(QuestionManager qm, int currentQuestion) {
         int randomNumOne;
         int randomNumTwo;
         System.out.println("fiftyFity() Working!");
@@ -391,7 +405,12 @@ public class GameFrame extends javax.swing.JFrame {
         fiftyFifty.setEnabled(false);
     }
 
-    public void askTheAudience(QuestionManager qm, int currentQuestion) {
+    /**
+     * Adds percentage signs next to the potential answers. The correct answer will always have the highest percentage.
+     * @param qm QuestionManager
+     * @param currentQuestion Integer current question
+     */
+    private void askTheAudience(QuestionManager qm, int currentQuestion) {
         String answer = "61%";
         String incorrect2 = "10%";
         String incorrect3 = "15%";
@@ -432,7 +451,10 @@ public class GameFrame extends javax.swing.JFrame {
         askTheAudience.setEnabled(false);
     }
 
-    public final void importQuestions() {
+    /**
+     * Import questions from database
+     */
+    private final void importQuestions() {
         try {
             DBManager dbm = new DBManager();
             Connection conn = dbm.getConnection();

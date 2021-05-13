@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
- *
+ *  Connects the database to localhost:1527
  * @author Jona Stevenson & Charles Monaghan
  */
 public final class DBManager {
