@@ -8,5 +8,5 @@ According to Greek mythology who was Apollo's twin sister?,A - Aphrodite,B - Art
 According to the Bible Moses and Aaron had a sister named what?,A - Jochebed,B - Ruth,C - Leah,D - Miriam,4,75000
 An airplane's black box is usually what color?,A - Black,B - White,C - Orange,D - Purple,3,150000
 Cheddar cheese got its name from a village in what country?,A - England,B - France,C - Switzerland,D - Denmark,1,250000
-From what language does the term 'R.S.V.P.' originate?,A - Russian,B - Italian,C - Portuguese,D - Fench,4,500000
+From what language does the term 'R.S.V.P.' originate?,A - Russian,B - Italian,C - Portuguese,D - French,4,500000
 How many keys are on a standard piano?,A - 20,B - 54,C - 88,D - 100,3,1000000

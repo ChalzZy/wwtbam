@@ -13,7 +13,6 @@ public class SignInFrame extends javax.swing.JFrame {
         initComponents();
     }
 
-    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -91,7 +90,7 @@ public class SignInFrame extends javax.swing.JFrame {
             // Create new GameFrame object run it with the start method
             this.setVisible(false);
             GameFrame gf = new GameFrame(newPlayer);
-            gf.setSize(800, 693);
+            gf.setSize(797, 710);
             gf.start(0);
             gf.setVisible(true);
         }

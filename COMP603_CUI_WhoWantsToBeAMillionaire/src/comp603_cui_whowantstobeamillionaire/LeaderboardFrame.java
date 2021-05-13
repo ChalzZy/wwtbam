@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package comp603_cui_whowantstobeamillionaire;
 
 import java.io.File;
@@ -13,12 +8,12 @@ import java.util.Scanner;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
  * @author Charles Monaghan & Jona Stevenson
  */
 public class LeaderboardFrame extends javax.swing.JFrame {
+
     private static final String LEADERBOARD = "src/comp603_cui_whowantstobeamillionaire/leaderboard.txt";
-    
+
     /**
      * Creates new form LeaderboardFrame
      */
@@ -28,7 +23,6 @@ public class LeaderboardFrame extends javax.swing.JFrame {
         this.generateTable();
     }
 
-    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -107,7 +101,6 @@ public class LeaderboardFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backToMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToMenuButtonActionPerformed
-        // TODO add your handling code here:
         this.setVisible(false);
         MainScreen ms = new MainScreen();
         ms.setVisible(true);
@@ -117,34 +110,9 @@ public class LeaderboardFrame extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LeaderboardFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LeaderboardFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LeaderboardFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LeaderboardFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new LeaderboardFrame().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new LeaderboardFrame().setVisible(true);
         });
     }
 
@@ -194,8 +162,8 @@ public class LeaderboardFrame extends javax.swing.JFrame {
         }
         return playerScores;
     }
-    
-        public void appendLeaderboard(String name, int bank) {
+
+    public void appendLeaderboard(String name, int bank) {
         // Open file in append mode
         try {
             FileWriter fw = new FileWriter("src/comp603_cui_whowantstobeamillionaire/leaderboard.txt", true);

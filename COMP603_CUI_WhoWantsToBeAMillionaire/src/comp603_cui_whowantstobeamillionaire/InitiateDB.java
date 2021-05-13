@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package comp603_cui_whowantstobeamillionaire;
 
 import java.sql.Connection;
@@ -16,16 +11,16 @@ import java.sql.Statement;
  * @author Jona Stevenson & Charles Monaghan
  */
 public class InitiateDB {
-    
+
     private final DBManager dbManager;
     private final Connection conn;
     private Statement statement;
-    
+
     public InitiateDB() {
         dbManager = new DBManager();
         conn = dbManager.getConnection();
     }
-    
+
     /**
      * Initiates all the questions into the database
      */
@@ -61,9 +56,10 @@ public class InitiateDB {
             System.out.println(ex.getMessage());
         }
     }
-    
+
     /**
      * Add player to the leaderboard
+     *
      * @param playerName Name of the player
      * @param score Final game score
      */
@@ -71,16 +67,17 @@ public class InitiateDB {
         try {
             this.statement = conn.createStatement();
             this.statement.addBatch("INSERT INTO LEADERBOARD VALUES "
-                    + "('"+playerName+"',"+score+")");
+                    + "('" + playerName + "'," + score + ")");
             this.statement.executeBatch();
         } catch (SQLException ex) {
             System.out.println(ex.getNextException());
             System.out.println(ex.getMessage());
         }
     }
-    
+
     /**
      * Checks if a table already exists
+     *
      * @param name Name of the table
      */
     public void checkExistedTable(String name) {
@@ -104,7 +101,7 @@ public class InitiateDB {
             System.out.println(ex.getMessage());
         }
     }
-    
+
     public void closeConnection() {
         this.dbManager.closeConnections();
     }

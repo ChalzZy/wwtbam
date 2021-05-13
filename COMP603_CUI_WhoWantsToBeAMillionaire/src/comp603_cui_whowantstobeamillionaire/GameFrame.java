@@ -16,7 +16,7 @@ public class GameFrame extends javax.swing.JFrame {
     private LeaderboardFrame lbf;
     private QuestionManager qm;
     private Bank bank;
-//    private Lifeline lifeline;
+    //private Lifeline lifeline;
 
     /**
      * Creates new gameFrame
@@ -32,87 +32,61 @@ public class GameFrame extends javax.swing.JFrame {
         this.importQuestions();
     }
 
-    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        questionTitlePanel = new javax.swing.JPanel();
+        northPanel = new javax.swing.JPanel();
         questionText = new javax.swing.JLabel();
         questionNumber = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        questionValueText = new javax.swing.JLabel();
         questionValue = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        questionTitlePanel = new javax.swing.JPanel();
         questionTitle = new javax.swing.JLabel();
         answerBoxPanel = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        imageLabel = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
         answerA = new javax.swing.JButton();
         answerB = new javax.swing.JButton();
         answerC = new javax.swing.JButton();
         answerD = new javax.swing.JButton();
+        lifelinePanel = new javax.swing.JPanel();
+        fiftyFifty = new javax.swing.JButton();
+        askTheAudience = new javax.swing.JButton();
+        imagePanel = new javax.swing.JPanel();
+        imageLabel = new javax.swing.JLabel();
+        moneyPane = new javax.swing.JScrollPane();
+        moneyList = new javax.swing.JList<>();
+        askTheAudiencePanel = new javax.swing.JPanel();
         askAudienceAnswer1 = new javax.swing.JLabel();
         askAudienceAnswer2 = new javax.swing.JLabel();
         askAudienceAnswer3 = new javax.swing.JLabel();
         askAudienceAnswer4 = new javax.swing.JLabel();
-        fiftyFifty = new javax.swing.JButton();
-        askTheAudience = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(797, 710));
 
         questionText.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         questionText.setText("Question");
-        questionTitlePanel.add(questionText);
+        northPanel.add(questionText);
 
         questionNumber.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         questionNumber.setText("-");
-        questionTitlePanel.add(questionNumber);
+        northPanel.add(questionNumber);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel2.setText("| Question Value: ");
-        questionTitlePanel.add(jLabel2);
+        questionValueText.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        questionValueText.setText("| Question Value: ");
+        northPanel.add(questionValueText);
 
         questionValue.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        questionValue.setText("$500");
-        questionTitlePanel.add(questionValue);
+        questionValue.setText("$-");
+        northPanel.add(questionValue);
 
-        jPanel1.setBackground(new java.awt.Color(51, 153, 255));
-        jPanel1.setLayout(new java.awt.GridBagLayout());
+        questionTitlePanel.setBackground(new java.awt.Color(51, 153, 255));
+        questionTitlePanel.setLayout(new java.awt.GridBagLayout());
 
         questionTitle.setForeground(new java.awt.Color(255, 255, 255));
         questionTitle.setText("Question Placeholder");
-        jPanel1.add(questionTitle, new java.awt.GridBagConstraints());
+        questionTitlePanel.add(questionTitle, new java.awt.GridBagConstraints());
 
         answerBoxPanel.setLayout(new java.awt.GridLayout(1, 0));
-
-        jPanel3.setLayout(new java.awt.GridLayout(1, 0));
-
-        imageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/comp603_cui_whowantstobeamillionaire/wwtbam.jpg"))); // NOI18N
-        imageLabel.setPreferredSize(new java.awt.Dimension(640, 340));
-        jPanel4.add(imageLabel);
-
-        jScrollPane1.setToolTipText("");
-        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-        jScrollPane1.setViewportBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jScrollPane1.setHorizontalScrollBar(null);
-        jScrollPane1.setMaximumSize(new java.awt.Dimension(84, 134));
-        jScrollPane1.setMinimumSize(new java.awt.Dimension(84, 134));
-        jScrollPane1.setPreferredSize(new java.awt.Dimension(90, 250));
-
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "$1 MILLION", "$500 000", "$250 000", "$150 000", "$75 000", "$50 000", "$20 000", "$10 000", "$5 000", "$2 000", "$1 000", "$500" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jList1.setToolTipText("");
-        jList1.setAutoscrolls(false);
-        jList1.setPreferredSize(new java.awt.Dimension(58, 350));
-        jList1.setVisibleRowCount(12);
-        jScrollPane1.setViewportView(jList1);
-
-        jPanel4.add(jScrollPane1);
 
         answerA.setBackground(new java.awt.Color(51, 153, 255));
         answerA.setForeground(new java.awt.Color(255, 255, 255));
@@ -122,6 +96,7 @@ public class GameFrame extends javax.swing.JFrame {
                 answerAActionPerformed(evt);
             }
         });
+        answerBoxPanel.add(answerA);
 
         answerB.setBackground(new java.awt.Color(51, 153, 255));
         answerB.setForeground(new java.awt.Color(255, 255, 255));
@@ -131,6 +106,7 @@ public class GameFrame extends javax.swing.JFrame {
                 answerBActionPerformed(evt);
             }
         });
+        answerBoxPanel.add(answerB);
 
         answerC.setBackground(new java.awt.Color(51, 153, 255));
         answerC.setForeground(new java.awt.Color(255, 255, 255));
@@ -140,6 +116,7 @@ public class GameFrame extends javax.swing.JFrame {
                 answerCActionPerformed(evt);
             }
         });
+        answerBoxPanel.add(answerC);
 
         answerD.setBackground(new java.awt.Color(51, 153, 255));
         answerD.setForeground(new java.awt.Color(255, 255, 255));
@@ -149,14 +126,9 @@ public class GameFrame extends javax.swing.JFrame {
                 answerDActionPerformed(evt);
             }
         });
+        answerBoxPanel.add(answerD);
 
-        askAudienceAnswer1.setText("20%");
-
-        askAudienceAnswer2.setText("30%");
-
-        askAudienceAnswer3.setText("40%");
-
-        askAudienceAnswer4.setText("10%");
+        lifelinePanel.setLayout(new java.awt.GridLayout(1, 0));
 
         fiftyFifty.setText("50/50");
         fiftyFifty.addActionListener(new java.awt.event.ActionListener() {
@@ -164,18 +136,59 @@ public class GameFrame extends javax.swing.JFrame {
                 fiftyFiftyActionPerformed(evt);
             }
         });
+        lifelinePanel.add(fiftyFifty);
 
         askTheAudience.setText("Ask The Audience");
-        askTheAudience.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                askTheAudienceMouseClicked(evt);
-            }
-        });
         askTheAudience.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 askTheAudienceActionPerformed(evt);
             }
         });
+        lifelinePanel.add(askTheAudience);
+
+        imageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/comp603_cui_whowantstobeamillionaire/wwtbam.jpg"))); // NOI18N
+        imageLabel.setPreferredSize(new java.awt.Dimension(640, 340));
+        imagePanel.add(imageLabel);
+
+        moneyPane.setToolTipText("");
+        moneyPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        moneyPane.setViewportBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        moneyPane.setHorizontalScrollBar(null);
+        moneyPane.setMaximumSize(new java.awt.Dimension(84, 134));
+        moneyPane.setMinimumSize(new java.awt.Dimension(84, 134));
+        moneyPane.setPreferredSize(new java.awt.Dimension(90, 250));
+
+        moneyList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "$1 MILLION", "$500 000", "$250 000", "$150 000", "$75 000", "$50 000", "$20 000", "$10 000", "$5 000", "$2 000", "$1 000", "$500" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        moneyList.setToolTipText("");
+        moneyList.setAutoscrolls(false);
+        moneyList.setPreferredSize(new java.awt.Dimension(58, 350));
+        moneyList.setVisibleRowCount(12);
+        moneyPane.setViewportView(moneyList);
+
+        imagePanel.add(moneyPane);
+
+        askTheAudiencePanel.setLayout(new java.awt.GridLayout());
+
+        askAudienceAnswer1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        askAudienceAnswer1.setText("-%");
+        askAudienceAnswer1.setToolTipText("");
+        askTheAudiencePanel.add(askAudienceAnswer1);
+
+        askAudienceAnswer2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        askAudienceAnswer2.setText("-%");
+        askTheAudiencePanel.add(askAudienceAnswer2);
+
+        askAudienceAnswer3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        askAudienceAnswer3.setText("-%");
+        askTheAudiencePanel.add(askAudienceAnswer3);
+
+        askAudienceAnswer4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        askAudienceAnswer4.setText("-%");
+        askTheAudiencePanel.add(askAudienceAnswer4);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -184,75 +197,32 @@ public class GameFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(imagePanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(northPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(questionTitlePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 756, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(answerA, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0)
-                                .addComponent(answerB, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0)
-                                .addComponent(answerC, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0)
-                                .addComponent(answerD, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(72, 72, 72)
-                                .addComponent(askAudienceAnswer1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(askAudienceAnswer2)
-                                .addGap(156, 156, 156)
-                                .addComponent(askAudienceAnswer3)
-                                .addGap(156, 156, 156)
-                                .addComponent(askAudienceAnswer4)
-                                .addGap(84, 84, 84)))
-                        .addComponent(answerBoxPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(questionTitlePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(fiftyFifty, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0)
-                                .addComponent(askTheAudience, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 756, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lifelinePanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(answerBoxPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 756, Short.MAX_VALUE)
+                            .addComponent(askTheAudiencePanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(questionTitlePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(northPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(imagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(answerBoxPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(answerA, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(answerB, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(answerC, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(answerD, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(askAudienceAnswer3)
-                                    .addComponent(askAudienceAnswer2)
-                                    .addComponent(askAudienceAnswer4)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(askAudienceAnswer1)))))
-                .addGap(7, 7, 7)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(fiftyFifty)
-                    .addComponent(askTheAudience))
+                .addComponent(questionTitlePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(answerBoxPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(askTheAudiencePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lifelinePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -285,10 +255,6 @@ public class GameFrame extends javax.swing.JFrame {
         askTheAudience(qm, currentQuestion);
     }//GEN-LAST:event_askTheAudienceActionPerformed
 
-    private void askTheAudienceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_askTheAudienceMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_askTheAudienceMouseClicked
-
     public static void main(String args[]) {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
@@ -307,19 +273,20 @@ public class GameFrame extends javax.swing.JFrame {
     private javax.swing.JLabel askAudienceAnswer3;
     private javax.swing.JLabel askAudienceAnswer4;
     private javax.swing.JButton askTheAudience;
+    private javax.swing.JPanel askTheAudiencePanel;
     private javax.swing.JButton fiftyFifty;
     private javax.swing.JLabel imageLabel;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel imagePanel;
+    private javax.swing.JPanel lifelinePanel;
+    private javax.swing.JList<String> moneyList;
+    private javax.swing.JScrollPane moneyPane;
+    private javax.swing.JPanel northPanel;
     private static javax.swing.JLabel questionNumber;
     private javax.swing.JLabel questionText;
     private static javax.swing.JLabel questionTitle;
     private javax.swing.JPanel questionTitlePanel;
     private static javax.swing.JLabel questionValue;
+    private javax.swing.JLabel questionValueText;
     // End of variables declaration//GEN-END:variables
 
     public void start(int i) {
@@ -338,29 +305,36 @@ public class GameFrame extends javax.swing.JFrame {
         askAudienceAnswer2.setVisible(false);
         askAudienceAnswer3.setVisible(false);
         askAudienceAnswer4.setVisible(false);
-        
     }
 
     public void checkAnswer(int i) {
         int currentQuestion = Integer.parseInt(questionNumber.getText());
 
         if (qm.getQuestions().get(currentQuestion - 1).getAnswerIndex() == i) {
-            this.bank.setMoney(qm.getQuestions().get(currentQuestion - 1).getQuestionValue());
-            JOptionPane.showMessageDialog(null, "That's correct, well done!\nBank: $" + this.bank.getAvaiBank(), "CORRECT", JOptionPane.INFORMATION_MESSAGE);
-            this.start(currentQuestion);
+            if (currentQuestion == qm.getQuestions().size()) {
+                this.bank.setMoney(qm.getQuestions().get(currentQuestion - 1).getQuestionValue());
+                JOptionPane.showMessageDialog(null, "WOW! That's correct, well done!\nYou won $1 MILLION DOLLARS!\nBank: $" + this.bank.getAvaiBank(), "CORRECT", JOptionPane.INFORMATION_MESSAGE);
+                this.setVisible(false);
+                MainScreen ms = new MainScreen();
+                ms.setVisible(true);
+            } else {
+                this.bank.setMoney(qm.getQuestions().get(currentQuestion - 1).getQuestionValue());
+                JOptionPane.showMessageDialog(null, "That's correct, well done!\nBank: $" + this.bank.getAvaiBank(), "CORRECT", JOptionPane.INFORMATION_MESSAGE);
+                this.start(currentQuestion);
+            }
         } else {
             if ((currentQuestion - 1) == 0) {
                 JOptionPane.showMessageDialog(null, "That's incorrect!\nYou got no questions correct.", "Incorrect", JOptionPane.ERROR_MESSAGE);
             } else if ((currentQuestion - 1) == 1) {
                 GameFrame.newPlayer.setScore(bank.getAvaiBank());
                 lbf.appendLeaderboard(newPlayer.getName(), newPlayer.getScore());
-                
+
                 JOptionPane.showMessageDialog(null, "That's incorrect!\nYou got " + (currentQuestion - 1) + " question correct, earning $"
                         + this.bank.getAvaiBank() + ".\nYour score has been recorded on the leaderboard.", "Incorrect", JOptionPane.ERROR_MESSAGE);
             } else {
                 GameFrame.newPlayer.setScore(bank.getAvaiBank());
                 lbf.appendLeaderboard(newPlayer.getName(), newPlayer.getScore());
-                
+
                 JOptionPane.showMessageDialog(null, "That's incorrect!\nYou got " + (currentQuestion - 1) + " questions correct, earning $"
                         + this.bank.getAvaiBank() + ".\nYour score has been recorded on the leaderboard.", "Incorrect", JOptionPane.ERROR_MESSAGE);
             }
@@ -370,7 +344,7 @@ public class GameFrame extends javax.swing.JFrame {
             ms.setVisible(true);
         }
     }
-    
+
     public void fiftyFifty(QuestionManager qm, int currentQuestion) {
         int randomNumOne;
         int randomNumTwo;
@@ -386,9 +360,9 @@ public class GameFrame extends javax.swing.JFrame {
                 break;
             }
         }
-        
+
         System.out.println("Possible answers:");
-        
+
         // Assigns each random number generated to it's applicable answer and prints it
         if (randomNumOne == 1 || randomNumTwo == 1) {
             System.out.println(qm.getQuestions().get(currentQuestion).getAnswerOne());
@@ -405,7 +379,7 @@ public class GameFrame extends javax.swing.JFrame {
         if (randomNumOne == 3 || randomNumTwo == 3) {
             System.out.println(qm.getQuestions().get(currentQuestion).getAnswerThree());
         } else {
-            answerC.setEnabled(false);    
+            answerC.setEnabled(false);
             System.out.println("C PANEL DISABLED!");
         }
         if (randomNumOne == 4 || randomNumTwo == 4) {
@@ -416,13 +390,13 @@ public class GameFrame extends javax.swing.JFrame {
         }
         fiftyFifty.setEnabled(false);
     }
-    
+
     public void askTheAudience(QuestionManager qm, int currentQuestion) {
         String answer = "61%";
         String incorrect2 = "10%";
         String incorrect3 = "15%";
         String incorrect4 = "14%";
-        
+
         int correctAnswer = qm.getQuestions().get(currentQuestion - 1).getAnswerIndex();
         System.out.println(correctAnswer);
         switch (correctAnswer) {
@@ -438,7 +412,7 @@ public class GameFrame extends javax.swing.JFrame {
                 askAudienceAnswer3.setText(incorrect4);
                 askAudienceAnswer4.setText(incorrect3);
                 break;
-            case 3:                
+            case 3:
                 askAudienceAnswer1.setText(incorrect2);
                 askAudienceAnswer2.setText(incorrect3);
                 askAudienceAnswer3.setText(answer);
