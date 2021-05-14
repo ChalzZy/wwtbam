@@ -113,8 +113,8 @@ Project Link: [https://github.com/ChalzZy/wwtbam](https://github.com/ChalzZy/wwt
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/ChalzZy/wwtbam?style=for-the-badge
 [contributors-url]: https://github.com/ChalzZy/wwtbam/graphs/contributors
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/bitbucket/issues-raw/ChalzZy/wwtbam
 [issues-url]: https://github.com/ChalzZy/wwtbam/issues
 [product-screenshot]: images/screenshot.png
