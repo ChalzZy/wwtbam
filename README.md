@@ -109,7 +109,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 <!-- CONTACT -->
 ## Contact
-Charles Monaghan - [@LinkedIn](https://www.linkedin.com/in/charlesmonaghan/)
+Charles Monaghan - [@LinkedIn](https://www.linkedin.com/in/charlesmonaghan/)<br>
 Jona Stevenson - [@LinkedIn](https://www.linkedin.com/in/jona-stevenson-nz/)
 
 Project Link: [https://github.com/ChalzZy/wwtbam](https://github.com/ChalzZy/wwtbam)
