@@ -1,5 +1,10 @@
-package comp603_cui_whowantstobeamillionaire;
+package comp603_cui_whowantstobeamillionaire.gui;
 
+import comp603_cui_whowantstobeamillionaire.Bank;
+import comp603_cui_whowantstobeamillionaire.DBManager;
+import comp603_cui_whowantstobeamillionaire.Player;
+import comp603_cui_whowantstobeamillionaire.Question;
+import comp603_cui_whowantstobeamillionaire.QuestionManager;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -60,7 +65,6 @@ public class GameFrame extends javax.swing.JFrame {
         askAudienceAnswer4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(797, 710));
 
         questionText.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         questionText.setText("Question");
@@ -170,7 +174,7 @@ public class GameFrame extends javax.swing.JFrame {
 
         imagePanel.add(moneyPane);
 
-        askTheAudiencePanel.setLayout(new java.awt.GridLayout());
+        askTheAudiencePanel.setLayout(new java.awt.GridLayout(1, 0));
 
         askAudienceAnswer1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         askAudienceAnswer1.setText("-%");

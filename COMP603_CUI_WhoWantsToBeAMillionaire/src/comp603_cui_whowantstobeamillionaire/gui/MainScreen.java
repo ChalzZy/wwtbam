@@ -1,4 +1,6 @@
-package comp603_cui_whowantstobeamillionaire;
+package comp603_cui_whowantstobeamillionaire.gui;
+
+import comp603_cui_whowantstobeamillionaire.InitiateDB;
 
 /**
  *  Main homepage

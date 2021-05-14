@@ -1,5 +1,6 @@
-package comp603_cui_whowantstobeamillionaire;
+package comp603_cui_whowantstobeamillionaire.gui;
 
+import comp603_cui_whowantstobeamillionaire.Player;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
