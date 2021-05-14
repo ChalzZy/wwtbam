@@ -63,7 +63,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](https://github.com/ChalzZy/wwtbam/)
 
 This project is a Who Wants To Be A Millionaire GUI game built using Java Swing. The game allows you to answer various questions, use lifelines, and compete for a place on the leaderboard. 
 
