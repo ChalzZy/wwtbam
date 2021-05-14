@@ -1,4 +1,4 @@
-package comp603_cui_whowantstobeamillionaire;
+package wwtbam_gui;
 
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
@@ -7,7 +7,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
- *  Initiates the database with questions
+ * Initiates the database with questions
+ *
  * @author Jona Stevenson & Charles Monaghan
  */
 public class InitiateDB {

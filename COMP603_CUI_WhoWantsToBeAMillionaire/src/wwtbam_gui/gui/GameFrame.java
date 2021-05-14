@@ -1,10 +1,10 @@
-package comp603_cui_whowantstobeamillionaire.gui;
+package wwtbam_gui.gui;
 
-import comp603_cui_whowantstobeamillionaire.Bank;
-import comp603_cui_whowantstobeamillionaire.DBManager;
-import comp603_cui_whowantstobeamillionaire.Player;
-import comp603_cui_whowantstobeamillionaire.Question;
-import comp603_cui_whowantstobeamillionaire.QuestionManager;
+import wwtbam_gui.Bank;
+import wwtbam_gui.DBManager;
+import wwtbam_gui.Player;
+import wwtbam_gui.Question;
+import wwtbam_gui.QuestionManager;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,7 +12,8 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 /**
- *  The main game frame
+ * The main game frame
+ *
  * @author Jona Stevenson & Charles Monaghan
  */
 public class GameFrame extends javax.swing.JFrame {
@@ -21,7 +22,7 @@ public class GameFrame extends javax.swing.JFrame {
     private final LeaderboardFrame lbf;
     private final QuestionManager qm;
     private final Bank bank;
-    
+
     /**
      * Creates new GameFrame
      *
@@ -149,7 +150,7 @@ public class GameFrame extends javax.swing.JFrame {
         });
         lifelinePanel.add(askTheAudience);
 
-        imageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/comp603_cui_whowantstobeamillionaire/wwtbam.jpg"))); // NOI18N
+        imageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/wwtbam_gui/images/wwtbam.jpg"))); // NOI18N
         imageLabel.setPreferredSize(new java.awt.Dimension(640, 340));
         imagePanel.add(imageLabel);
 
@@ -294,6 +295,7 @@ public class GameFrame extends javax.swing.JFrame {
 
     /**
      * Initiate the game
+     *
      * @param i the current question
      */
     public void start(int i) {
@@ -316,6 +318,7 @@ public class GameFrame extends javax.swing.JFrame {
 
     /**
      * Check if the answer is correct
+     *
      * @param answer selected (1 - 4)
      */
     private void checkAnswer(int i) {
@@ -324,7 +327,10 @@ public class GameFrame extends javax.swing.JFrame {
         if (qm.getQuestions().get(currentQuestion - 1).getAnswerIndex() == i) {
             if (currentQuestion == qm.getQuestions().size()) {
                 this.bank.setMoney(qm.getQuestions().get(currentQuestion - 1).getQuestionValue());
-                JOptionPane.showMessageDialog(null, "WOW! That's correct, well done!\nYou won $1 MILLION DOLLARS!\nBank: $" + this.bank.getAvaiBank(), "CORRECT", JOptionPane.INFORMATION_MESSAGE);
+                GameFrame.newPlayer.setScore(bank.getAvaiBank());
+                lbf.appendLeaderboard(newPlayer.getName(), newPlayer.getScore());
+                JOptionPane.showMessageDialog(null, "WOW! That's correct, well done!\nYou won $1 MILLION DOLLARS!\nBank: $"
+                        + this.bank.getAvaiBank(), "CORRECT", JOptionPane.INFORMATION_MESSAGE);
                 this.setVisible(false);
                 MainScreen ms = new MainScreen();
                 ms.setVisible(true);
@@ -351,7 +357,7 @@ public class GameFrame extends javax.swing.JFrame {
                             + this.bank.getAvaiBank() + ".\nYour score has been recorded on the leaderboard.", "Incorrect", JOptionPane.ERROR_MESSAGE);
                     break;
             }
-            
+
             this.setVisible(false);
             MainScreen ms = new MainScreen();
             ms.setVisible(true);
@@ -359,7 +365,9 @@ public class GameFrame extends javax.swing.JFrame {
     }
 
     /**
-     * Removes 50% of the questions. Leaving one correct and one incorrect answer.
+     * Removes 50% of the questions. Leaving one correct and one incorrect
+     * answer.
+     *
      * @param qm QuestionManager
      * @param currentQuestion Integer current question
      */
@@ -410,7 +418,9 @@ public class GameFrame extends javax.swing.JFrame {
     }
 
     /**
-     * Adds percentage signs next to the potential answers. The correct answer will always have the highest percentage.
+     * Adds percentage signs next to the potential answers. The correct answer
+     * will always have the highest percentage.
+     *
      * @param qm QuestionManager
      * @param currentQuestion Integer current question
      */

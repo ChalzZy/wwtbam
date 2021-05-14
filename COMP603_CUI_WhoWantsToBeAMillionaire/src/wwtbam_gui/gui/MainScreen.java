@@ -1,9 +1,10 @@
-package comp603_cui_whowantstobeamillionaire.gui;
+package wwtbam_gui.gui;
 
-import comp603_cui_whowantstobeamillionaire.InitiateDB;
+import wwtbam_gui.InitiateDB;
 
 /**
- *  Main homepage
+ * Main homepage
+ *
  * @author Jona Stevenson & Charles Monaghan
  */
 public class MainScreen extends javax.swing.JFrame {
@@ -64,7 +65,7 @@ public class MainScreen extends javax.swing.JFrame {
         titleLabel.setText("Welcome to Who Wants to be a Millionaire");
         titlePanel.add(titleLabel, java.awt.BorderLayout.CENTER);
 
-        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/comp603_cui_whowantstobeamillionaire/logo.png"))); // NOI18N
+        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/wwtbam_gui/images/logo.png"))); // NOI18N
         logoPanel.add(logoLabel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -95,6 +96,7 @@ public class MainScreen extends javax.swing.JFrame {
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
         this.dispose();
+        System.exit(0);
     }//GEN-LAST:event_exitButtonActionPerformed
 
     private void playButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playButtonActionPerformed
@@ -108,7 +110,7 @@ public class MainScreen extends javax.swing.JFrame {
         LeaderboardFrame lf = new LeaderboardFrame();
         lf.setVisible(true);
     }//GEN-LAST:event_leaderboardButtonActionPerformed
-
+    
     public static void main(String args[]) {
         InitiateDB db = new InitiateDB();
         db.connectQuestionsDB();

@@ -1,6 +1,6 @@
-package comp603_cui_whowantstobeamillionaire.gui;
+package wwtbam_gui.gui;
 
-import comp603_cui_whowantstobeamillionaire.Player;
+import wwtbam_gui.Player;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
@@ -10,11 +10,12 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  * Leaderboard GUI
+ *
  * @author Charles Monaghan & Jona Stevenson
  */
 public class LeaderboardFrame extends javax.swing.JFrame {
 
-    private static final String LEADERBOARD = "src/comp603_cui_whowantstobeamillionaire/leaderboard.txt";
+    private static final String LEADERBOARD = "src/wwtbam_gui/leaderboard.txt";
 
     /**
      * Creates new form LeaderboardFrame
@@ -168,7 +169,7 @@ public class LeaderboardFrame extends javax.swing.JFrame {
     public void appendLeaderboard(String name, int bank) {
         // Open file in append mode
         try {
-            FileWriter fw = new FileWriter("src/comp603_cui_whowantstobeamillionaire/leaderboard.txt", true);
+            FileWriter fw = new FileWriter("src/wwtbam_gui/leaderboard.txt", true);
 
             // Append item
             fw.append("\n" + name + "," + bank);

@@ -1,9 +1,10 @@
-package comp603_cui_whowantstobeamillionaire.gui;
+package wwtbam_gui.gui;
 
-import comp603_cui_whowantstobeamillionaire.Player;
+import wwtbam_gui.Player;
 
 /**
- *  Signs the player in
+ * Signs the player in
+ *
  * @author Jona Stevenson & Charles Monaghan
  */
 public class SignInFrame extends javax.swing.JFrame {
@@ -83,7 +84,8 @@ public class SignInFrame extends javax.swing.JFrame {
 
     /**
      * Initiates a new game
-     * @param evt 
+     *
+     * @param evt
      */
     private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startButtonActionPerformed
         String name = nameField.getText();
@@ -92,7 +94,7 @@ public class SignInFrame extends javax.swing.JFrame {
             nameErrorLabel.setText("Please enter your first name only!");
         } else {
             Player newPlayer = new Player(name, 0); // Creates a new player object with a default score of 0
-            
+
             // Create new GameFrame object run it with the start method
             this.setVisible(false);
             GameFrame gf = new GameFrame(newPlayer);

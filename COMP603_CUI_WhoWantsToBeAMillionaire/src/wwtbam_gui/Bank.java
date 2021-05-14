@@ -1,4 +1,4 @@
-package comp603_cui_whowantstobeamillionaire;
+package wwtbam_gui;
 
 /**
  * Create the bank for the player.

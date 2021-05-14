@@ -1,5 +1,7 @@
-package comp603_cui_whowantstobeamillionaire;
+package wwtbam_gui;
 
+import wwtbam_gui.QuestionManager;
+import wwtbam_gui.Question;
 import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;

@@ -1,7 +1,8 @@
-package comp603_cui_whowantstobeamillionaire;
+package wwtbam_gui;
 
 /**
- * Controls all attributes of a question, such as title, answers, correct answer and value
+ * Controls all attributes of a question, such as title, answers, correct answer
+ * and value
  *
  * @author Jona Stevenson & Charles Monaghan
  */
@@ -56,7 +57,7 @@ public class Question {
     public String getAnswerTwo() {
         return answerTwo;
     }
-    
+
     /**
      * @return third potential answer
      */
@@ -79,7 +80,8 @@ public class Question {
     }
 
     /**
-     * @return integer of correct answer. E.g. 3 = C; Hence C is the correct answer. 
+     * @return integer of correct answer. E.g. 3 = C; Hence C is the correct
+     * answer.
      */
     public int getAnswerIndex() {
         return answerIndex;

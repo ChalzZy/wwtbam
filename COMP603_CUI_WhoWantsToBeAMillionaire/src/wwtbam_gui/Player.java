@@ -1,4 +1,4 @@
-package comp603_cui_whowantstobeamillionaire;
+package wwtbam_gui;
 
 /**
  * Creates a new player for the game.

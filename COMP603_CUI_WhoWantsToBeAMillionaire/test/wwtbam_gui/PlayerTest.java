@@ -1,5 +1,6 @@
-package comp603_cui_whowantstobeamillionaire;
+package wwtbam_gui;
 
+import wwtbam_gui.Player;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

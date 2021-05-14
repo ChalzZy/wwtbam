@@ -1,0 +1,6 @@
+Jona,10000
+Charles,5000
+Bob,10000
+Joe,75000
+Fred,150000
+Emma,250000
