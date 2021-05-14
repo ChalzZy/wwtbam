@@ -25,7 +25,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/logo.png" alt="Logo" width="110" height="110">
   </a>
 
   <h3 align="center">Who Wants To Be A Millionaire GUI</h3>
