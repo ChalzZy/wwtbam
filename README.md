@@ -115,6 +115,6 @@ Project Link: [https://github.com/ChalzZy/wwtbam](https://github.com/ChalzZy/wwt
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/ChalzZy/wwtbam?style=for-the-badge
 [contributors-url]: https://github.com/ChalzZy/wwtbam/graphs/contributors
-[issues-shield]: https://img.shields.io/bitbucket/issues-raw/ChalzZy/wwtbam
+[issues-shield]: https://img.shields.io/bitbucket/issues-raw/ChalzZy/wwtbam?style=for-the-badge
 [issues-url]: https://github.com/ChalzZy/wwtbam/issues
 [product-screenshot]: images/screenshot.png
